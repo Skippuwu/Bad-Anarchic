@@ -1,5 +1,5 @@
 # Anarchic :fire:
-A feature rich Discord bot including party, economy, and voting features with 13 different [roles](#roles) you can play as!
+A feature rich Discord bot including party, economy, and voting features with 14 different [roles](#roles) you can play as!
 
 ### Invite the bot [here](https://discord.com/api/oauth2/authorize?client_id=887118309827432478&permissions=105696980048&scope=bot%20applications.commands)
 <p align="center" width="100%">
@@ -8,6 +8,9 @@ A feature rich Discord bot including party, economy, and voting features with 13
 
 
 # Changelog :memo:
+**version 1.2.0**
+- tank role
+
 **Version 1.1.0** :ghost:
 - Two new roles: The [Psychic](#psychic) and The [Consigliere](#consigliere)
 - New shop in town! Check out [Anarith](#anarith) selling the newest items, [Shards](#shards)!
