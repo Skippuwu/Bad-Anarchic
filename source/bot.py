@@ -175,9 +175,9 @@ def PlayerSize(size:int):
         return GameSize.Medium
     elif (size >= 9 and size <= 10):
         return GameSize.Large
-    elif (size > 10):
+    elif (size > 20):
         return GameSize.TooBig
-    elif (size < 5):
+    elif (size < 1):
         return GameSize.TooSmall
 
 def reasonToText(reason:DeathReason):
@@ -192,7 +192,7 @@ def reasonToText(reason:DeathReason):
     if (reason == DeathReason.Mafia):
         return "They were attacked by a member of the **Mafia** <:maficon2:890328238029697044>."
     if (reason == DeathReason.Enforcer):
-        return "They were shot by an **Enforcer**. <:enficon2:890339050865696798>"
+        return "They were brought to justice by an **Enforcer**. <:enficon2:890339050865696798>"
     if (reason == DeathReason.Guilt):
         return "They died from **Guilt**."
     if (reason == DeathReason.JesterGuilt):
@@ -200,7 +200,7 @@ def reasonToText(reason:DeathReason):
     if (reason == DeathReason.Plague):
         return "They were taken by the **Plague**."
     if (reason == DeathReason.Psychopath):
-        return "They were killed by a member of the **Psychopath**."
+        return "They were sliced by one of the **Psychopaths**."
     if (reason == DeathReason.Cleaned):
         return "We could not determine how they died."
 
@@ -520,9 +520,9 @@ temp = {
     "support" : ["Mayor", "Psychic"],
     "mafias" : ["Framer", "Consort", "Consigliere"],
     "cults" : ["Cult Leader", "Ritualist"],
-    "neutrals" : ["Headhunter", "Jester"],
+    "neutrals" : ["Headhunter", "Jester", "Tank"],
     "investigatives" : ["Cop", "Detective", "Lookout", "Tracker"],
-    "comps" : {"enforced": ["Enforcer", "Doctor", "Mafioso", "RT", "RN"], "classic":["Cop", "Doctor", "Mayor", "Jester", "Mafioso"], "execution":["Cop", "Doctor", "RT", "RT", "Headhunter", "Mafioso"], "legacy":["Cop", "Doctor", "RT", "RT", "RT", "RN", "Mafioso", "RM"], "scattered":["Enforcer", "Doctor", "RT", "RT", "RT", "Mafioso", "RM", "Headhunter"], "duet": ["Enforcer", "Doctor", "TI", "RT", "RT", "Mafioso", "Consort"], "framed": ["Cop", "Doctor", "TI", "RT", "RT", "Mafioso", "Framer"], "anarchy": ["Mayor", "Doctor", "TI", "TI", "RT", "RT", "Mafioso", "RM", "RN", "A"], "ranked": ["Doctor", "Enforcer", "TI", "TI", "RT", "RT", "RT", "Mafioso", "Consort", "Framer"], "truth" : ["Detective", "Doctor", "RT", "RT", "RT", "Mafioso", "Consigliere"],"delta":["Psychopath", "Tracker", "Mafioso"], "custom" : []},
+    "comps" : {"enforced": ["Enforcer", "Doctor", "Mafioso", "RT", "Tank"], "classic":["Cop", "Doctor", "Mayor", "Jester", "Mafioso"], "execution":["Cop", "Doctor", "RT", "RT", "Headhunter", "Mafioso"], "legacy":["Cop", "Doctor", "RT", "RT", "RT", "RN", "Mafioso", "RM"], "scattered":["Enforcer", "Doctor", "RT", "RT", "RT", "Mafioso", "RM", "Headhunter"], "duet": ["Enforcer", "Doctor", "TI", "RT", "RT", "Mafioso", "Consort"], "framed": ["Cop", "Doctor", "TI", "RT", "RT", "Mafioso", "Framer"], "anarchy": ["Mayor", "Doctor", "TI", "TI", "RT", "RT", "Mafioso", "RM", "RN", "A"], "ranked": ["Doctor", "Enforcer", "TI", "TI", "RT", "RT", "RT", "Mafioso", "Consort", "Framer"], "truth" : ["Detective", "Doctor", "RT", "RT", "RT", "Mafioso", "Consigliere"],"delta":["Psychopath", "Tracker", "Mafioso"], "custom" : []},
     "data" : {},
     "inv" : {},
     "dailythings" : {},
@@ -5332,6 +5332,7 @@ async def viewCustom(inter):
             OptionChoice("Neutral Killing", "NK"),
             OptionChoice("Random Mafia", "RM"),
             OptionChoice("Any", "A")
+            OptionChoice("Tank", "T")
         ])
     ],
     guild_ids=[871525831422398494]
@@ -5387,6 +5388,8 @@ async def add(inter, role=None):
             message += f"**Neutral Killing :dagger:**\n"
         elif (i == "A"):
             message += "Any :game_die:\n"
+        elif (i == "Tank"):
+            message += "Tank :game_die:\n"
         else:
             message += f"{i} {em[i.lower()]}\n"
 
@@ -5404,6 +5407,9 @@ async def add(inter, role=None):
         thing = f"**Neutral Killing :dagger:**"
     elif (role == "A"):
         thing = "Any :game_die:"
+    elif (role == "Tank):
+        thing = "Tank :game_die:"
+
     else:
         thing += f"{i}"
 
@@ -5441,6 +5447,7 @@ async def add(inter, role=None):
             OptionChoice("Neutral Evil", "RN"),
             OptionChoice("Random Mafia", "RM"),
             OptionChoice("Any", "A")
+            OptionChoice("Tank", "T")
         ])
     ],
     guild_ids=[871525831422398494]
