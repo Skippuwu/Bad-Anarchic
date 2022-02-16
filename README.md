@@ -140,6 +140,9 @@ A hooker who works for organized crime
 - Distract a player each night
 - You are immune to **distractions**
 
+## Cult
+A second Informed Minority also trying to take over the Town
+
 ## Neutral 🪓
 The neutrals. They are their own faction, and they have their own win condition.
 
@@ -161,6 +164,18 @@ An obsessed executioner who wants a certain someone killed in front of the town.
 **You will be assigned a player that is a member of the Town :house:. Your goal is to get them lynched, not kill them.**
 
 - If your target is killed at night, you will become a **Jester** :clown_face:
+
+### Tank 🎲
+**Faction: Neutral**
+
+A loner trying to Survive
+
+**Your goal: Survive until the end of the game**
+
+You auto Survive 2 attacks
+-After the 2 attacks all attacks kill you
+-You can't be healed or defended
+-The 2 saves also protect you from hanging
 
 # FAQ
 Q: Are there questions here?
